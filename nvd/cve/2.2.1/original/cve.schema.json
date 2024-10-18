@@ -167,7 +167,7 @@
                     ]
                 },
                 "cvssData": {
-                    "$ref": "https://csrc.nist.gov/schema/nvd/api/2.0/external/cvss-v2.0.json"
+                    "$ref": "./cvss-v2.0.json"
                 },
                 "baseSeverity": {
                     "type": "string"
@@ -213,7 +213,7 @@
                     ]
                 },
                 "cvssData": {
-                    "$ref": "https://csrc.nist.gov/schema/nvd/api/2.0/external/cvss-v3.0.json"
+                    "$ref": "./cvss-v3.0.json"
                 },
                 "exploitabilityScore": {
                     "$ref": "#/definitions/def_subscore"
@@ -241,7 +241,7 @@
                     ]
                 },
                 "cvssData": {
-                    "$ref": "https://csrc.nist.gov/schema/nvd/api/2.0/external/cvss-v3.1.json"
+                    "$ref": "./cvss-v3.1.json"
                 },
                 "exploitabilityScore": {
                     "$ref": "#/definitions/def_subscore"
@@ -269,7 +269,7 @@
                     ]
                 },
                 "cvssData": {
-                    "$ref": "https://csrc.nist.gov/schema/nvd/api/2.0/external/cvss-v4.0.json"
+                    "$ref": "./cvss-v4.0.json"
                 }
             },
             "required": [
