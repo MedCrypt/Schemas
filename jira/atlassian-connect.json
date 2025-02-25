@@ -1,0 +1,26 @@
+{
+    "name": "Medcrypt Helm Integration",
+    "description": "Integrate Medcrypt's Helm system into your Jira instance",
+    "key": "co.medcrypt.helm",
+    "baseUrl": "https://a225-170-85-100-200.ngrok-free.app",
+    "vendor": {
+        "name": "Medcrypt",
+        "url": "https://www.medcrypt.com/"
+    },
+    "authentication": {
+        "type": "none"
+    },
+    "apiVersion": 1,
+    "modules": {
+        "generalPages": [
+            {
+                "url": "/api/v1/integrations/jira/hello-world.html",
+                "key": "hello-world",
+                "location": "system.top.navigation.bar",
+                "name": {
+                    "value": "Greeting"
+                }
+            }
+        ]
+    }
+}
