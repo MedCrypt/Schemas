@@ -1,0 +1,108 @@
+{
+  "name": "Medcrypt Helm in Jira",
+  "description": "Bring Medcrypt's Helm vulnerability management into your Jira instance",
+  "key": "co.medcrypt.helm.jira.dev",
+  "baseUrl": "https://tortoise-wanted-sponge.ngrok-free.app",
+  "vendor": {
+    "name": "Medcrypt",
+    "url": "https://www.medcrypt.com/"
+  },
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/api/v1/integrations/atlassian/installed",
+    "enabled": "/api/v1/integrations/atlassian/enabled",
+    "disabled": "/api/v1/integrations/atlassian/disabled",
+    "uninstalled": "/api/v1/integrations/atlassian/uninstalled"
+  },
+  "apiMigrations": {
+    "signed-install": true
+  },
+  "scopes": [
+    "READ",
+    "WRITE",
+    "DELETE"
+  ],
+  "modules": {
+    "jiraSecurityInfoProvider": {
+      "homeUrl": "https://www.medcrypt.com",
+      "logoUrl": "https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1489611626/s4kvflh8ktwgallrjduu.jpg",
+      "documentationUrl": "https://tortoise-wanted-sponge.ngrok-free.app/api/v1/integrations/atlassian/documentation",
+      "name": {
+        "value": "Medcrypt Security Provider"
+      },
+      "key": "helm-security-integration",
+      "actions": {
+        "fetchWorkspaces": {
+          "templateUrl": "https://tortoise-wanted-sponge.ngrok-free.app/api/v1/integrations/atlassian/fetchworkspaces"
+        },
+        "fetchContainers": {
+          "templateUrl": "https://tortoise-wanted-sponge.ngrok-free.app/api/v1/integrations/atlassian/fetchcontainers"
+        },
+        "searchContainers": {
+          "templateUrl": "https://tortoise-wanted-sponge.ngrok-free.app/api/v1/integrations/atlassian/searchcontainers"
+        },
+        "onEntityAssociated": {
+          "templateUrl": "https://tortoise-wanted-sponge.ngrok-free.app/api/v1/integrations/atlassian/onentityassociated"
+        },
+        "onEntityDisassociated": {
+          "templateUrl": "https://tortoise-wanted-sponge.ngrok-free.app/api/v1/integrations/atlassian/onentitydisassociated"
+        }
+      }
+    },
+    "postInstallPage": {
+      "url": "/api/v1/integrations/atlassian/postinstall",
+      "name": {
+        "value": "Medcrypt Post-Install Page",
+        "i18n": "postinstallpage.name"
+      },
+      "key": "medcrypt-post-install-page"
+    },
+    "configurePage": {
+      "url": "/api/v1/integrations/atlassian/authenticateandlink",
+      "name": {
+        "value": "Medcrypt Configuration Page",
+        "i18n": "configurepage.name"
+      },
+      "key": "medcrypt-configure-page"
+    },
+    "webSections": [
+      {
+        "key": "medcrypt-addon-admin-section",
+        "location": "admin_plugins_menu",
+        "name": {
+          "value": "Medcrypt Helm for Jira"
+        }
+      }
+    ],
+    "adminPages": [
+      {
+        "url": "/api/v1/integrations/atlassian/authenticateandlink",
+        "conditions": [
+          {
+            "condition": "user_is_admin"
+          }
+        ],
+        "name": {
+          "value": "Authenticate And Link"
+        },
+        "key": "medcrypt-addon-auth-and-link",
+        "location": "admin_plugins_menu/medcrypt-addon-admin-section"
+      },
+      {
+        "url": "/api/v1/integrations/atlassian/triggervulntransfer",
+        "conditions": [
+          {
+            "condition": "user_is_admin"
+          }
+        ],
+        "name": {
+          "value": "Trigger Vuln Transfer"
+        },
+        "key": "medcrypt-addon-trigger-vuln-transfer",
+        "location": "admin_plugins_menu/medcrypt-addon-admin-section"
+      }
+    ]
+  }
+}
